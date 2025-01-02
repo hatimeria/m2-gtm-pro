@@ -11,7 +11,7 @@ namespace Hatimeria\GtmPro\Model\DataLayerComponent\UA;
 use Magento\Framework\Exception\NoSuchEntityException;
 
 /**
- * Class ProductImpression
+ * Class ProductClick
  */
 class ProductClick extends ComponentAbstract
 {

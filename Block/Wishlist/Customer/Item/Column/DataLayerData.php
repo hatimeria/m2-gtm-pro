@@ -36,11 +36,6 @@ class DataLayerData extends Column
     /**
      * @var DataLayerComponent
      */
-    protected $productImpression;
-
-    /**
-     * @var DataLayerComponent
-     */
     protected $productClick;
 
     /**
@@ -49,7 +44,6 @@ class DataLayerData extends Column
      * @param Context $httpContext
      * @param GtmConfig $gtmConfig
      * @param Json $jsonSerializer
-     * @param DataLayerComponent $productImpression
      * @param DataLayerComponent $productClick
      * @param array $data
      * @param ConfigInterface|null $config
@@ -60,7 +54,6 @@ class DataLayerData extends Column
         HttpContext $httpContext,
         GtmConfig $gtmConfig,
         Json $jsonSerializer,
-        DataLayerComponent $productImpression,
         DataLayerComponent $productClick,
         array $data = [],
         ConfigInterface $config = null,
@@ -68,7 +61,6 @@ class DataLayerData extends Column
     ) {
         $this->gtmConfig = $gtmConfig;
         $this->jsonSerializer = $jsonSerializer;
-        $this->productImpression = $productImpression;
         $this->productClick = $productClick;
         parent::__construct($context, $httpContext, $data, $config, $urlBuilder);
     }
@@ -78,9 +70,8 @@ class DataLayerData extends Column
      */
     protected function _toHtml()
     {
-        if (($this->gtmConfig->isModuleEnabled() && $this->isProductImpressionTrackingEnabled())
-            || ($this->gtmConfig->isModuleEnabled() && $this->isProductImpressionTrackingEnabled())) {
-                return parent::_toHtml();
+        if (($this->gtmConfig->isModuleEnabled() && $this->isProductClickTrackingEnabled())) {
+            return parent::_toHtml();
         }
 
         return '';
@@ -89,29 +80,9 @@ class DataLayerData extends Column
     /**
      * @return bool
      */
-    public function isProductImpressionTrackingEnabled()
-    {
-        return $this->gtmConfig->isModuleEnabled()
-            && $this->gtmConfig->getVersion() !== GtmConfig\Source\Version::GA4
-            && $this->gtmConfig->isProductImpressionTrackingEnabled();
-    }
-
-    /**
-     * @return bool
-     */
     public function isProductClickTrackingEnabled()
     {
         return $this->gtmConfig->isModuleEnabled() && $this->gtmConfig->isProductClickTrackingEnabled();
-    }
-
-    /**
-     * @return array
-     */
-    public function getProductImpressionData()
-    {
-        return $this->jsonSerializer->serialize(
-            $this->productImpression->getData(['object' => $this->getProductItem()])
-        );
     }
 
     public function getProductClickData()

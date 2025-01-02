@@ -112,13 +112,6 @@
             </argument>
         </arguments>
     </virtualType>
-    <virtualType name="Hatimeria\GtmPro\Model\DataLayerComponent\ProductImpression" type="Hatimeria\GtmPro\Model\DataLayerComponent">
-        <arguments>
-            <argument name="versionComponents" xsi:type="array">
-                <item name="0" xsi:type="object">Hatimeria\GtmPro\Model\DataLayerComponent\UA\ProductImpression</item>
-            </argument>
-        </arguments>
-    </virtualType>
     <virtualType name="Hatimeria\GtmPro\Model\DataLayerComponent\ProductClick" type="Hatimeria\GtmPro\Model\DataLayerComponent">
         <arguments>
             <argument name="versionComponents" xsi:type="array">
@@ -172,13 +165,11 @@
     </type>
     <type name="Hatimeria\GtmPro\Block\Wishlist\Customer\Item\Column">
         <arguments>
-            <argument name="productImpression" xsi:type="object">Hatimeria\GtmPro\Model\DataLayerComponent\ProductImpression</argument>
             <argument name="productClick" xsi:type="object">Hatimeria\GtmPro\Model\DataLayerComponent\ProductClick</argument>
         </arguments>
     </type>
     <type name="Hatimeria\GtmPro\Block\Catalog\Product\ProductList\ItemDataLayerData">
         <arguments>
-            <argument name="productImpression" xsi:type="object">Hatimeria\GtmPro\Model\DataLayerComponent\ProductImpression</argument>
             <argument name="productClick" xsi:type="object">Hatimeria\GtmPro\Model\DataLayerComponent\ProductClick</argument>
         </arguments>
     </type>

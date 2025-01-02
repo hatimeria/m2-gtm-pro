@@ -33,11 +33,6 @@ class ItemDataLayerData extends \Magento\Framework\View\Element\Template impleme
     /**
      * @var DataLayerComponent
      */
-    protected $productImpression;
-
-    /**
-     * @var DataLayerComponent
-     */
     protected $productClick;
     
     /**
@@ -50,7 +45,6 @@ class ItemDataLayerData extends \Magento\Framework\View\Element\Template impleme
      * @param Context $context
      * @param Config $config
      * @param Json $jsonSerializer
-     * @param DataLayerComponent $productImpression
      * @param DataLayerComponent $productClick
      * @param array $data
      */
@@ -58,13 +52,11 @@ class ItemDataLayerData extends \Magento\Framework\View\Element\Template impleme
         Context $context,
         Config $config,
         Json $jsonSerializer,
-        DataLayerComponent $productImpression,
         DataLayerComponent $productClick,
         array $data = []
     ) {
         $this->config = $config;
         $this->jsonSerializer = $jsonSerializer;
-        $this->productImpression = $productImpression;
         $this->productClick = $productClick;
         parent::__construct($context, $data);
     }
@@ -91,8 +83,7 @@ class ItemDataLayerData extends \Magento\Framework\View\Element\Template impleme
      */
     protected function _toHtml()
     {
-        if (($this->config->isModuleEnabled() && $this->isProductImpressionTrackingEnabled())
-            || ($this->config->isModuleEnabled() && $this->isProductClickTrackingEnabled())) {
+        if (($this->config->isModuleEnabled() && $this->isProductClickTrackingEnabled())) {
                 return parent::_toHtml();
         }
 
@@ -102,29 +93,9 @@ class ItemDataLayerData extends \Magento\Framework\View\Element\Template impleme
     /**
      * @return bool
      */
-    public function isProductImpressionTrackingEnabled()
-    {
-        return $this->config->isModuleEnabled()
-            && $this->config->getVersion() !== Config\Source\Version::GA4
-            && $this->config->isProductImpressionTrackingEnabled();
-    }
-
-    /**
-     * @return bool
-     */
     public function isProductClickTrackingEnabled()
     {
         return $this->config->isModuleEnabled() && $this->config->isProductClickTrackingEnabled();
-    }
-
-    /**
-     * @return string
-     */
-    public function getProductImpressionData()
-    {
-        return $this->jsonSerializer->serialize(
-            $this->productImpression->getData(['object' => $this->getProduct()])
-        );
     }
 
     /**

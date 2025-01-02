@@ -18,7 +18,7 @@ class ElementClick extends AbstractEvent
      */
     public function isEventEnabled()
     {
-        return $this->config->isProductImpressionTrackingEnabled();
+        return $this->config->isProductClickTrackingEnabled();
     }
 
     /**
@@ -26,6 +26,6 @@ class ElementClick extends AbstractEvent
      */
     public function getProductClass()
     {
-        return $this->config->getProductImpressionTrackClass();
+        return $this->config->getProductClickElementClass();
     }
 }

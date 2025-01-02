@@ -14,7 +14,7 @@ use Hatimeria\GtmPro\Api\DataLayerComponentInterface;
 use Magento\Catalog\Model\Product;
 
 /**
- * Class ProductImpression
+ * Class ProductClick
  */
 class ProductClick extends ComponentAbstract
 {

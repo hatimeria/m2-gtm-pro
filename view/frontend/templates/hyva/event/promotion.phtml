@@ -48,33 +48,6 @@
             return data;
         }
 
-        function initImpression() {
-            const promotions = document.querySelectorAll('[data-promotion-id]');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.intersectionRatio > 0 && !entry.target.classList.contains('promotion-viewed')) {
-                        entry.target.classList.add('promotion-viewed');
-                        let data = getBaseImpressionEventData();
-                        data.ecommerce.promoView.promotions.push(getPromotionData(entry.target));
-                        window.dataLayer.push(data);
-                    }
-                });
-            });
-
-            promotions.forEach(promotion => {
-                observer.observe(promotion);
-            });
-        }
-
-        function getBaseImpressionEventData() {
-            let data = {};
-            data.ecommerce = {};
-            data.ecommerce.promoView = {};
-            data.ecommerce.promoView.promotions = [];
-
-            return data;
-        }
-
         function getPromotionData(entry) {
             let data = {};
             data.id = entry.dataset.promotionId;
@@ -90,12 +63,10 @@
         }
 
         return {
-            initClick: initClick,
-            initImpression: initImpression
+            initClick: initClick
         }
     }
 
     initGtmPromotion().initClick();
-    initGtmPromotion().initImpression();
 
 </script>

@@ -14,8 +14,6 @@
                 <container_id></container_id>
             </general>
             <event>
-                <product_impression_enabled>1</product_impression_enabled>
-                <product_impression_track_class>product-item</product_impression_track_class>
                 <product_click_enabled>1</product_click_enabled>
                 <product_click_element_class>product-item</product_click_element_class>
                 <product_click_link_class>product-item-photo,product-item-link</product_click_link_class>

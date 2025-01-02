@@ -23,12 +23,6 @@ class Config
         = 'hatimeria_gtmpro/general/container_id';
     const XML_CONFIG_PATH_HATIMERIA_GTMPRO_VERSION
         = 'hatimeria_gtmpro/general/version';
-
-    const XML_CONFIG_PATH_HATIMERIA_GTMPRO_EVENT_PRODUCT_IMPRESSION_ENABLED
-        = 'hatimeria_gtmpro/event/product_impression_enabled';
-    const XML_CONFIG_PATH_HATIMERIA_GTMPRO_PRODUCT_IMPRESSION_TRACK_CLASS
-        = 'hatimeria_gtmpro/event/product_impression_track_class';
-
     const XML_CONFIG_PATH_HATIMERIA_GTMPRO_EVENT_PRODUCT_CLICK_ENABLED
         = 'hatimeria_gtmpro/event/product_click_enabled';
     const XML_CONFIG_PATH_HATIMERIA_GTMPRO_PRODUCT_CLICK_ELEMENT_CLASS =
@@ -130,30 +124,6 @@ class Config
     {
         return (int)$this->scopeConfig->getValue(
             self::XML_CONFIG_PATH_HATIMERIA_GTMPRO_VERSION,
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
-            $this->storeManager->getStore()->getId()
-        );
-    }
-
-    /**
-     * @return bool
-     */
-    public function isProductImpressionTrackingEnabled():bool
-    {
-        return $this->scopeConfig->isSetFlag(
-            self::XML_CONFIG_PATH_HATIMERIA_GTMPRO_EVENT_PRODUCT_IMPRESSION_ENABLED,
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
-            $this->storeManager->getStore()->getId()
-        );
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getProductImpressionTrackClass()
-    {
-        return $this->scopeConfig->getValue(
-            self::XML_CONFIG_PATH_HATIMERIA_GTMPRO_PRODUCT_IMPRESSION_TRACK_CLASS,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE,
             $this->storeManager->getStore()->getId()
         );

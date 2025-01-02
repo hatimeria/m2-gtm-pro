@@ -9,8 +9,6 @@
 - Easy to Install.
 - Easy to Customize.
 - Easy to Extend.
-- Real Product Impression and Promotion Tracking. Module sending data only for items which has been viewed, not rendered.
-
 
 #### Magento 2 module for integrate your store and send all needed data to Google Tag Manager by DataLayer. This module is very easy to install.
 
@@ -28,9 +26,7 @@ For Magento 2.4.x
 - Add To Wishlist
 - Add To Compare
 - Product Click
-- Product Impression (AJAX compatible)
 - Promotion Click
-- Promotion Impression
 - Any Element Click
 - Any Form Tracking
 - Checkout Steps Data
@@ -104,12 +100,6 @@ run bellow command from console:
 
 Go to Magento2 Admin -> Stores -> Configuration -> Hatimeria -> Gtm Pro -> Events
 
-####Product Impression Tracking
-
-1. Set `Product Impression Tracking` to `Enable`
-2. Set `Product Impression Track Class` which will be used for tracking. Default value is Luma Theme compatible `product-item` class.
-If you are using different class naming just add here your own class which is a top parent of your products.
-
 ####Product Click Tracking
 
 1. Set `Product Click Tracking` to `Enable`
@@ -165,7 +155,7 @@ This feature will track Remove Product From Wishlist as well.
 ####Promotion Tracking
 1. Set `Promotion Tracking` to `Enable`
 
-This feture will track promotion click and promotion impression
+This feture will track promotion click
 ### Need More Events or Support?
 Feel free with contact us for any help.
 
