@@ -38,7 +38,6 @@
             </argument>
         </arguments>
     </type>
-    <preference for="Hatimeria\GtmPro\Api\DataLayerServiceInterface" type="Hatimeria\GtmPro\Model\DataLayerService" />
     <preference for="Hatimeria\GtmPro\Api\GuestCheckoutStepInterface" type="Hatimeria\GtmPro\Model\GuestCheckoutStep" />
     <preference for="Hatimeria\GtmPro\Api\CheckoutStepInterface" type="Hatimeria\GtmPro\Model\CheckoutStep" />
     <type name="Magento\Catalog\Block\Product\AbstractProduct">
